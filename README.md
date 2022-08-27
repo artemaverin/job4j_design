@@ -29,7 +29,7 @@ Scanner
 Сокеты
 Внешняя сортировка файлов
 
-SQl, JDBC
+SQl, JDBC:
 Общие сведения о базах данных на основе PostgreSQL
 Базовый синтаксис SQL
 Запросы Select, Join, Outer Left, Right
