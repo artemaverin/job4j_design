@@ -26,7 +26,7 @@ class SimpleConvertTest {
         SimpleConvert simpleConvert = new SimpleConvert();
         String[] array = simpleConvert.toArray("first", "second", "three", "four", "five");
         assertThat(array).hasSize(5)
-                .containsOnly("second","four","first","five","three")
+                .containsOnly("second", "four", "first", "five", "three")
                 .containsExactlyInAnyOrder("first", "second", "three", "four", "five")
                 .startsWith("first", "second")
                 .endsWith("four", "five");
@@ -42,7 +42,7 @@ class SimpleConvertTest {
                     assertThat(e).isNotEqualTo("six");
                 })
                 .anyMatch(e -> e.length() == 4)
-                .noneMatch(e -> e.length()<3);
+                .noneMatch(e -> e.length() < 3);
         assertThat(array).first().isEqualTo("first");
         assertThat(array).last().isNotNull()
                 .isEqualTo("five");
@@ -51,7 +51,7 @@ class SimpleConvertTest {
     @Test
     void isSet() {
         SimpleConvert simpleConvert = new SimpleConvert();
-        Set<String> array = simpleConvert.toSet("first", "second", "three", "four", "five","three");
+        Set<String> array = simpleConvert.toSet("first", "second", "three", "four", "five", "three");
         assertThat(array).element(3).isNotNull();
         assertThat(array).filteredOn(e -> e.length() > 5).first().isEqualTo("second");
     }

@@ -27,4 +27,5 @@ public class SimpleConvert {
                         (first, second) -> first)
                 );
     }
+
 }
