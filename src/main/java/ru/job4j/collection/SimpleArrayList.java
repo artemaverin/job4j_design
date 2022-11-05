@@ -29,7 +29,7 @@ public class SimpleArrayList<T> implements SimpleList<T> {
 
     @Override
     public T remove(int index) {
-        T res = container[index];
+        T res = get(index);
         System.arraycopy(
                 container,
                 index + 1,
@@ -55,7 +55,9 @@ public class SimpleArrayList<T> implements SimpleList<T> {
     }
 
     private void expand() {
-        if (container.length == size) {
+        if (container.length == 0) {
+            container = (T[]) new Object[5];
+        } else {
             container = Arrays.copyOf(container, container.length * 2);
         }
     }
