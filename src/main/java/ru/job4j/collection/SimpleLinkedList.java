@@ -21,6 +21,7 @@ public class SimpleLinkedList<E> implements LinkedList<E> {
     }
         private Node<E> head;
         private int modCount;
+        private int size;
 
         public SimpleLinkedList() {
             this.head = new Node<E>();
@@ -35,11 +36,12 @@ public class SimpleLinkedList<E> implements LinkedList<E> {
             }
             currentNode.next = new Node<E>(value, null);
             modCount++;
+            size++;
         }
 
         @Override
         public E get(int index) {
-            Objects.checkIndex(index, getLength());
+            Objects.checkIndex(index, size);
             int count = 0;
             Node<E> currentNode = head.next;
             while (currentNode != null) {
@@ -50,16 +52,6 @@ public class SimpleLinkedList<E> implements LinkedList<E> {
                 currentNode = currentNode.next;
             }
             throw new IndexOutOfBoundsException();
-        }
-
-        private int getLength() {
-            int size = 0;
-            Node<E> currentNode = head.next;
-            while (currentNode != null) {
-                currentNode = currentNode.next;
-                size++;
-            }
-            return size;
         }
 
         @Override
