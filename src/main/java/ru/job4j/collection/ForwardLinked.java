@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class ForwardLinked<T> implements Iterable<T> {
+
     private Node<T> head;
 
     public void add(T value) {
@@ -21,7 +22,8 @@ public class ForwardLinked<T> implements Iterable<T> {
     }
 
     public void addFirst(T value) {
-
+        Node<T> first = new Node<>(value, head);
+        head = first;
     }
 
     public T deleteFirst() {
