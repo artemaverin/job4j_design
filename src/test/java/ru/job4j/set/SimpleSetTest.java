@@ -32,6 +32,7 @@ class SimpleSetTest {
         set.add(1);
         set.add(2);
         set.add(4);
+        set.add(1);
         assertThat(set).hasSize(3);
     }
 
