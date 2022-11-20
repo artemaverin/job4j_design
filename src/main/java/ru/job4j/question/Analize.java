@@ -1,7 +1,6 @@
 package ru.job4j.question;
 
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Analize {
 
@@ -10,12 +9,15 @@ public class Analize {
         int change = 0;
         int del = 0;
         Info res = new Info(add, change, del);
-        for (User cur : current) {
-            for (User prev : previous) {
-                if (prev.getId() == cur.getId() && !Objects.equals(prev.getName(), cur.getName())) {
-                    change++;
-                    res.setChanged(change);
-                }
+        Map<Integer, String> map = new HashMap<>();
+        for (User user : current) {
+            map.put(user.getId(), user.getName());
+        }
+
+        for (User user: previous) {
+            if (map.containsKey(user.getId()) && !map.containsValue(user.getName())) {
+                change++;
+                res.setChanged(change);
             }
         }
 
