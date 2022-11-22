@@ -23,7 +23,7 @@ public class Config {
             while (((s = read.readLine()) != null)) {
                 if (!s.contains("#") && !s.isEmpty()) {
                     String[] arr = s.split("=");
-                    if (arr.length < 2) {
+                    if (arr.length < 2 || "".equals(arr[0])) {
                         throw new IllegalArgumentException("incorrect line : " + s);
                     } else if (arr.length > 2 && !("".equals(arr[2]))) {
                         values.put(arr[0], arr[2]);
