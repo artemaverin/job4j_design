@@ -43,7 +43,7 @@ public class Config {
     @Override
     public String toString() {
         StringJoiner out = new StringJoiner(System.lineSeparator());
-        try(BufferedReader read = new BufferedReader(new FileReader(this.path))) {
+        try (BufferedReader read = new BufferedReader(new FileReader(this.path))) {
             read.lines().forEach(out::add);
         } catch (IOException e) {
             e.printStackTrace();
