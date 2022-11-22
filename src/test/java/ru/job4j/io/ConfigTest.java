@@ -35,6 +35,33 @@ class ConfigTest {
     }
 
     @Test
+    void whenPairWithException2() {
+        String path = "./data/pair_with exception2.properties";
+        Config config = new Config(path);
+        assertThatThrownBy(config::load)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("incorrect line : =password");
+    }
+
+    @Test
+    void whenPairWithExceptionWithOutEqualChar() {
+        String path = "./data/pair_with exception3.properties";
+        Config config = new Config(path);
+        assertThatThrownBy(config::load)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("incorrect line : hibernate.dialect org.hibernate.dialect.PostgreSQLDialect");
+    }
+
+    @Test
+    void whenPairWithExceptionWithOnlyEqualChar() {
+        String path = "./data/pair_with exception4.properties";
+        Config config = new Config(path);
+        assertThatThrownBy(config::load)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("incorrect line : =");
+    }
+
+    @Test
     void whenPairWithInaccuracies() {
         String path = "./data/pair_with_expected_inaccuracies.properties";
         Config config = new Config(path);

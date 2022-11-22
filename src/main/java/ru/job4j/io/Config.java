@@ -36,6 +36,7 @@ public class Config {
             e.printStackTrace();
         }
     }
+
     public String value(String key) {
         return key != null ? values.get(key) : null;
     }
