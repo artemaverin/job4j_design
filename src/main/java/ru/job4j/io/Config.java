@@ -37,11 +37,9 @@ public class Config {
             e.printStackTrace();
         }
     }
-
     public String value(String key) {
         return key != null ? values.get(key) : null;
     }
-
     @Override
     public String toString() {
         StringJoiner out = new StringJoiner(System.lineSeparator());
@@ -52,7 +50,6 @@ public class Config {
         }
         return out.toString();
     }
-
     public static void main(String[] args) {
         Config config = new Config("./data/pair_with_expected_inaccuracies.properties");
         System.out.println(config);
