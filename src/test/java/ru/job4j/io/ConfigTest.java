@@ -15,6 +15,7 @@ class ConfigTest {
         assertThat(config.value("hibernate.connection.url"))
                 .isEqualTo("jdbc:postgresql://127.0.0.1:5432/trackstudio");
     }
+
     @Test
     void whenPairWithCommentAndGaps() {
         String path = "./data/pair_with_comment_and_gaps.properties";
@@ -23,6 +24,7 @@ class ConfigTest {
         assertThat(config.value("hibernate.connection.url"))
                 .isEqualTo("jdbc:postgresql://127.0.0.1:5432/trackstudio");
     }
+
     @Test
     void whenPairWithException() {
         String path = "./data/pair_with exception.properties";
@@ -31,6 +33,7 @@ class ConfigTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("incorrect line : hibernate.connection.username=");
     }
+
     @Test
     void whenPairWithInaccuracies() {
         String path = "./data/pair_with_expected_inaccuracies.properties";
