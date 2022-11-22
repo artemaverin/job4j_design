@@ -24,10 +24,7 @@ public class LogFilter {
         try (PrintWriter out = new PrintWriter(
                 new BufferedOutputStream(
                         new FileOutputStream(file, true)))) {
-            String[] numbers = log.toString().substring(1, log.toString().length() - 1).split(", ");
-            for (String num : numbers) {
-                out.printf("%s%n", num);
-            }
+            log.forEach(out::println);
         } catch (IOException e) {
             e.printStackTrace();
         }
