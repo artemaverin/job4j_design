@@ -3,10 +3,7 @@ package ru.job4j.io;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.StringJoiner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Config {
@@ -21,15 +18,15 @@ public class Config {
         try (BufferedReader read = new BufferedReader(new FileReader(this.path))) {
             String s;
             while (((s = read.readLine()) != null)) {
-                if (!s.contains("#") && !s.isEmpty()) {
-                    String[] arr = s.split("=");
-                    if (arr.length < 2 || "".equals(arr[0])) {
+                if (!s.startsWith("#") && !s.isBlank()) {
+                    String[] arr = s.split("=", 2);
+                    if (!s.contains("=")
+                            || s.startsWith("=")
+                            || Objects.equals("=", s)
+                            || arr[1].equals("")) {
                         throw new IllegalArgumentException("incorrect line : " + s);
-                    } else if (arr.length > 2 && !("".equals(arr[2]))) {
-                        values.put(arr[0], arr[2]);
-                    } else {
-                        values.put(arr[0], arr[1]);
                     }
+                    values.put(arr[0], arr[1]);
                 }
             }
         } catch (IOException e) {
@@ -38,7 +35,7 @@ public class Config {
     }
 
     public String value(String key) {
-        return key != null ? values.get(key) : null;
+        return values.get(key);
     }
     @Override
     public String toString() {

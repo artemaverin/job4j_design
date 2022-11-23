@@ -67,8 +67,8 @@ class ConfigTest {
         Config config = new Config(path);
         config.load();
         assertThat(config.value("hibernate.connection.driver_class"))
-                .isEqualTo("SomeDriver");
+                .isEqualTo("org.postgresql.Driver=SomeDriver");
         assertThat(config.value("hibernate.connection.password"))
-                .isEqualTo("password");
+                .isEqualTo("password=");
     }
 }
