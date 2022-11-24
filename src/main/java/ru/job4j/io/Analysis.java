@@ -16,10 +16,10 @@ public class Analysis {
             while ((s = in.readLine()) != null) {
                 if (!condition && (s.contains("400") || s.contains("500"))) {
                     condition = true;
-                    out.print(s.substring(4) + ";");
+                    out.printf("%s%s", s.substring(4), ";");
                 } else if (condition && (s.contains("200") || s.contains("300"))) {
                     condition = false;
-                    out.println(s.substring(4) + ";");
+                    out.printf("%s%s%n", s.substring(4), ";");
                 }
             }
 
@@ -29,6 +29,6 @@ public class Analysis {
     }
 
     public static void main(String[] args) {
-        new Analysis().unavailable("server data 2.txt", "result.txt");
+        new Analysis().unavailable("server data.txt", "result.txt");
     }
 }
