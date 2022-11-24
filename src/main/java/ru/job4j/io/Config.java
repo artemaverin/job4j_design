@@ -19,13 +19,12 @@ public class Config {
             String s;
             while (((s = read.readLine()) != null)) {
                 if (!s.startsWith("#") && !s.isBlank()) {
-                    String[] arr = s.split("=", 2);
                     if (!s.contains("=")
                             || s.startsWith("=")
-                            || Objects.equals("=", s)
-                            || arr[1].equals("")) {
+                            || s.indexOf("=") == s.length() - 1) {
                         throw new IllegalArgumentException("incorrect line : " + s);
                     }
+                    String[] arr = s.split("=", 2);
                     values.put(arr[0], arr[1]);
                 }
             }
