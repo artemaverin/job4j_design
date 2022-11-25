@@ -37,8 +37,7 @@ public class Dir {
                     System.out.printf("Ошибка при подсчёте размера директории %s", e);
                 }
 
-                System.out.printf("Имя директории : %15s , размер : %10s bytes %n", subfile.getName()
-                        , size);
+                System.out.printf("Имя директории : %15s , размер : %10s bytes %n", subfile.getName(), size);
             } else {
                 System.out.printf("Имя файла : %20s , размер : %10s bytes %n", subfile.getName(), subfile.length());
             }
