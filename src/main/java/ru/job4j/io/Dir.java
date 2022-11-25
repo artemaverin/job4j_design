@@ -8,9 +8,9 @@ import java.util.stream.Stream;
 
 import static java.nio.file.FileVisitResult.CONTINUE;
 
-public class Dir{
+public class Dir {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         File file = new File("C:\\projects\\job4j_design");
         long size = 0;
         if (!file.exists()) {
@@ -19,7 +19,7 @@ public class Dir{
         if (!file.isDirectory()) {
             throw new IllegalArgumentException(String.format("Not directory %s", file.getAbsoluteFile()));
         }
-        for (File subfile: Objects.requireNonNull(file.listFiles())) {
+        for (File subfile : Objects.requireNonNull(file.listFiles())) {
             if (subfile.isDirectory()) {
                 try (Stream<Path> walk = Files.walk(subfile.toPath())) {
                     size = walk
@@ -38,7 +38,7 @@ public class Dir{
                 }
 
                 System.out.printf("Имя директории : %15s , размер : %10s bytes %n", subfile.getName()
-                        ,size);
+                        , size);
             } else {
                 System.out.printf("Имя файла : %20s , размер : %10s bytes %n", subfile.getName(), subfile.length());
             }
