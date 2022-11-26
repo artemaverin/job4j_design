@@ -17,7 +17,6 @@ public class SearchFiles implements FileVisitor<Path> {
 
     private List<Path> list = new ArrayList<>();
 
-
     public SearchFiles(Predicate<Path> condition) {
         this.condition = condition;
     }
