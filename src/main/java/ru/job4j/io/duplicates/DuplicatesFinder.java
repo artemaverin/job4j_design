@@ -12,7 +12,5 @@ public class DuplicatesFinder {
             System.out.println(q.getKey().getName() + " " + q.getKey().getSize());
             q.getValue().forEach(System.out::println);
         });
-
     }
-
 }

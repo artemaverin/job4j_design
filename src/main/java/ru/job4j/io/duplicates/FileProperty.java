@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class FileProperty {
 
+
     private long size;
 
     private String name;
