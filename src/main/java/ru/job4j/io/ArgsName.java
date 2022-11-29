@@ -18,10 +18,8 @@ public class ArgsName {
             throw new IllegalArgumentException("not enough initial parameters");
         }
         for (int i = 0; i < args.length; i++) {
-            if (!args[i].contains("encoding")) {
-                String[] arr = validArray(args[i]);
-                values.put(arr[0], arr[1]);
-            }
+            String[] arr = validArray(args[i]);
+            values.put(arr[0], arr[1]);
         }
     }
 
