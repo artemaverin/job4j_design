@@ -2,6 +2,7 @@ package ru.job4j.io;
 
 import java.io.*;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -31,11 +32,34 @@ public class Zip {
         }
     }
 
+    public static void isValid(ArgsName argsName) {
+        File directory = Paths.get(argsName.get("d")).toFile();
+        String exclude = argsName.get("e");
+        String output = argsName.get("o");
+        if (!directory.exists() && !directory.isDirectory()) {
+            throw new IllegalArgumentException(String.format("%s - does not exist or is not a directory", directory));
+        }
+        if (!exclude.startsWith(".")) {
+            throw new IllegalArgumentException(String.format("%s - has incorrect file extension", exclude));
+        }
+        if (!output.contains(".")
+                || (output.indexOf(".") == output.length() - 1)
+                || !List.of(".zip", ".rar").contains(output.substring(output.indexOf(".")))) {
+            throw new IllegalArgumentException(String.format("%s - is not archive extension", output.substring(output.indexOf("."))));
+        }
+
+    }
+
     public static void main(String[] args) throws IOException {
+        if (args.length < 3) {
+            throw new IllegalArgumentException("not enough initial parameters");
+        }
+        ArgsName argsName = ArgsName.of(args);
+        isValid(argsName);
         Zip zip = new Zip();
-        List<Path> list = Search.search(Path.of(ArgsName.of(args).get("d")),
-                e -> !e.toFile().getName().endsWith(ArgsName.of(args).get("e")));
-        File file = Path.of(ArgsName.of(args).get("o")).toFile();
+        List<Path> list = Search.search(Path.of(argsName.get("d")),
+                e -> !e.toFile().getName().endsWith(argsName.get("e")));
+        File file = Path.of(argsName.get("o")).toFile();
         zip.packFiles(list, file);
     }
 }
