@@ -22,15 +22,16 @@ public class ConsoleChat {
 
     public void run() {
         List<String> log = new ArrayList<>();
+        List<String> answersList = readPhrases();
         Scanner scanner = new Scanner(System.in);
         String text, text2, answer;
         String continuePhrase = "Glad you back, mister";
         text = scanner.nextLine();
-        while (!text.equals(OUT)) {
+        while (!OUT.equals(text)) {
             log.add(text);
-            if (text.equals(STOP)) {
+            if (STOP.equals(text)) {
                 text2 = scanner.nextLine();
-                while (!text2.equals(CONTINUE)) {
+                while (!CONTINUE.equals(text2)) {
                     log.add(text2);
                     text2 = scanner.nextLine();
                 }
@@ -38,7 +39,7 @@ public class ConsoleChat {
                 System.out.println(continuePhrase);
                 log.add(continuePhrase);
             } else {
-                answer = readPhrases().get((int) (Math.random() * readPhrases().size()));
+                answer = answersList.get((int) (Math.random() * answersList.size()));
                 System.out.println(answer);
                 log.add(answer);
             }
