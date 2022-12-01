@@ -25,11 +25,14 @@ public class ConsoleChat {
         Scanner scanner = new Scanner(System.in);
         String text, text2, answer;
         String continuePhrase = "Glad you back, mister";
-        while (!(text = scanner.nextLine()).equals(OUT)) {
+        text = scanner.nextLine();
+        while (!text.equals(OUT)) {
             log.add(text);
             if (text.equals(STOP)) {
-                while (!(text2 = scanner.nextLine()).equals(CONTINUE)) {
+                text2 = scanner.nextLine();
+                while (!text2.equals(CONTINUE)) {
                     log.add(text2);
+                    text2 = scanner.nextLine();
                 }
                 log.add(CONTINUE);
                 System.out.println(continuePhrase);
@@ -39,6 +42,7 @@ public class ConsoleChat {
                 System.out.println(answer);
                 log.add(answer);
             }
+            text = scanner.nextLine();
         }
         log.add(OUT);
         saveLog(log);
@@ -64,8 +68,7 @@ public class ConsoleChat {
     }
 
     public static void main(String[] args) {
-        ConsoleChat cc = new ConsoleChat("C:\\projects\\job4j_design\\console_chat\\Log.txt"
-                , "C:\\projects\\job4j_design\\console_chat\\BotAnswers.txt");
+        ConsoleChat cc = new ConsoleChat("C:\\projects\\job4j_design\\console_chat\\Log.txt", "C:\\projects\\job4j_design\\console_chat\\BotAnswers.txt");
         cc.run();
     }
 }
