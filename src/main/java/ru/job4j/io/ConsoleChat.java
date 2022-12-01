@@ -27,18 +27,18 @@ public class ConsoleChat {
         String continuePhrase = "Glad you back, mister";
         while (!(text = scanner.nextLine()).equals(OUT)) {
             log.add(text);
-                if (text.equals(STOP)) {
-                    while (!(text2 = scanner.nextLine()).equals(CONTINUE)) {
-                        log.add(text2);
-                    }
-                    log.add(CONTINUE);
-                    System.out.println(continuePhrase);
-                    log.add(continuePhrase);
-                } else {
-                    answer = readPhrases().get((int) (Math.random() * readPhrases().size()));
-                    System.out.println(answer);
-                    log.add(answer);
+            if (text.equals(STOP)) {
+                while (!(text2 = scanner.nextLine()).equals(CONTINUE)) {
+                    log.add(text2);
                 }
+                log.add(CONTINUE);
+                System.out.println(continuePhrase);
+                log.add(continuePhrase);
+            } else {
+                answer = readPhrases().get((int) (Math.random() * readPhrases().size()));
+                System.out.println(answer);
+                log.add(answer);
+            }
         }
         log.add(OUT);
         saveLog(log);
@@ -46,7 +46,7 @@ public class ConsoleChat {
 
     private List<String> readPhrases() {
         List<String> list = new ArrayList<>();
-        try(BufferedReader bf = new BufferedReader(new FileReader(botAnswers))) {
+        try (BufferedReader bf = new BufferedReader(new FileReader(botAnswers))) {
             list = bf.lines().collect(Collectors.toList());
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,10 +55,10 @@ public class ConsoleChat {
     }
 
     private void saveLog(List<String> log) {
-        try(PrintWriter pw = new PrintWriter(
+        try (PrintWriter pw = new PrintWriter(
                 new FileWriter(path, Charset.forName("WINDOWS-1251"), true))) {
             log.forEach(pw::println);
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
