@@ -10,8 +10,7 @@ public class CSVReader {
         StringJoiner sj = new StringJoiner("");
         List<Integer> indexList = new ArrayList<>();
         String[] filters = argsName.get("filter").split(",");
-        try (Scanner scanner = new Scanner(new FileReader(argsName.get("path"))).useDelimiter(",");
-             PrintWriter out = new PrintWriter(new BufferedOutputStream(new FileOutputStream(argsName.get("out"))))) {
+        try (Scanner scanner = new Scanner(new FileReader(argsName.get("path")))) {
             while (scanner.hasNext()) {
                 list.add(scanner.nextLine().split(argsName.get("delimiter")));
             }
@@ -34,14 +33,19 @@ public class CSVReader {
                 }
                 sj.add(System.lineSeparator());
             }
-            if ("stdout".equals(argsName.get("out"))) {
-                System.out.println(sj);
-            } else {
-                out.write(sj.toString());
-            }
-
         } catch (Exception e) {
             e.printStackTrace();
+        }
+
+        if ("stdout".equals(argsName.get("out"))) {
+            System.out.println(sj);
+        } else {
+            try (FileOutputStream out = new FileOutputStream(argsName.get("out"))) {
+                out.write(sj.toString().getBytes());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
@@ -58,9 +62,8 @@ public class CSVReader {
             throw new IllegalArgumentException(String.format("%s - is not correct CSV format", delimiter));
         }
         if (!"stdout".equals(out)
-                && !Paths.get(out).toFile().exists()
-                && !Paths.get(out).toFile().isFile()) {
-            throw new IllegalArgumentException(String.format("%s - does not exist or is not a file", out));
+                && !out.endsWith(".csv")) {
+            throw new IllegalArgumentException(String.format("%s - is not a CSV file", out));
         }
 
     }
