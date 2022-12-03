@@ -11,7 +11,7 @@ public class CSVReader {
         List<Integer> indexList = new ArrayList<>();
         String[] filters = argsName.get("filter").split(",");
         try (Scanner scanner = new Scanner(new FileReader(argsName.get("path"))).useDelimiter(",");
-                PrintWriter out = new PrintWriter(new BufferedOutputStream(new FileOutputStream(argsName.get("out"))))) {
+             PrintWriter out = new PrintWriter(new BufferedOutputStream(new FileOutputStream(argsName.get("out"))))) {
             while (scanner.hasNext()) {
                 list.add(scanner.nextLine().split(argsName.get("delimiter")));
             }
@@ -29,12 +29,17 @@ public class CSVReader {
                         sj.add(list.get(i)[n]);
                     } else {
                         sj.add(list.get(i)[n]);
-                        sj.add(";");
+                        sj.add(argsName.get("delimiter"));
                     }
                 }
                 sj.add(System.lineSeparator());
             }
-            out.write(sj.toString());
+            if ("stdout".equals(argsName.get("out"))) {
+                System.out.println(sj);
+            } else {
+                out.write(sj.toString());
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -43,16 +48,19 @@ public class CSVReader {
     public static void isValid(ArgsName argsName) {
         File path = Paths.get(argsName.get("path")).toFile();
         String delimiter = argsName.get("delimiter");
-        File out = Paths.get(argsName.get("out")).toFile();
+        String out = argsName.get("out");
         String filter = argsName.get("filter");
         if (!path.exists() && !path.isFile()) {
             throw new IllegalArgumentException(String.format("%s - does not exist or is not a directory", path));
         }
-        if (!delimiter.matches("^\\W")) {
-            throw new IllegalArgumentException(String.format("%s - is not correct delimiter", delimiter));
+        if (!(";".equals(delimiter)
+                || ",".equals(delimiter))) {
+            throw new IllegalArgumentException(String.format("%s - is not correct CSV format", delimiter));
         }
-        if (!out.exists() && !out.isFile()) {
-            throw new IllegalArgumentException(String.format("%s - does not exist or is not a directory", out));
+        if (!"stdout".equals(out)
+                && !Paths.get(out).toFile().exists()
+                && !Paths.get(out).toFile().isFile()) {
+            throw new IllegalArgumentException(String.format("%s - does not exist or is not a file", out));
         }
 
     }
