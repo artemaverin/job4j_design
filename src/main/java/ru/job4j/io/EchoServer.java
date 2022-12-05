@@ -28,7 +28,7 @@ public class EchoServer {
                     out.flush();
                 }
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             LOG.error("following exception occures in EchoServer", e);
         }
     }
