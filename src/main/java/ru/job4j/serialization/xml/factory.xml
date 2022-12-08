@@ -1,0 +1,9 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<factory isSubsidized="false" personalQuantity="332" name="Aquaton">
+    <product product="Furniture"/>
+    <units>
+        <unit>marketing</unit>
+        <unit>production</unit>
+        <unit>sales</unit>
+    </units>
+</factory>
