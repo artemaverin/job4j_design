@@ -45,6 +45,26 @@ public class Factory {
                 + '}';
     }
 
+    public boolean isSubsidized() {
+        return isSubsidized;
+    }
+
+    public int getPersonalQuantity() {
+        return personalQuantity;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public String[] getUnits() {
+        return units;
+    }
+
     public static void main(String[] args) throws JAXBException {
         final Factory factory = new Factory(false,
                 451,
