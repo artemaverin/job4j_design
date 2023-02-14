@@ -81,6 +81,6 @@ public class FileFind {
         ArgsName name1 = ArgsName.of(new String[]{
                 "-d=C:\\projects\\job4j_design\\data", "-n=*.?xt", "-t=mask", "-o=C:\\projects\\job4j_design\\cftdir\\Mylog.txt"});
         ArgsName name = ArgsName.of(args);
-        start(name1);
+        start(name);
     }
 }
