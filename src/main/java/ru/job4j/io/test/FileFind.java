@@ -48,14 +48,9 @@ public class FileFind {
                 temp = search(Path.of(path), p -> p.toFile().getName().equals(line));
                 break;
             case "mask":
-                String str;
-                if (!line.endsWith("*") || !line.endsWith("?")) {
-                    str = line.replaceAll("\\*", "[\\\\w*]")
-                            .replaceAll("\\?", "\\\\w") + "$";
-                } else {
-                    str = line.replaceAll("\\*", "[\\\\w*]")
-                            .replaceAll("\\?", "\\\\w");
-                }
+                String str = line.replaceAll("\\.", "[.]")
+                        .replaceAll("\\*", ".*")
+                        .replaceAll("\\?", ".");
                 Pattern maskPattern = Pattern.compile(str);
                 temp = search(Path.of(path), p -> maskPattern.asPredicate().test(p.toFile().getName()));
                 break;
@@ -84,8 +79,8 @@ public class FileFind {
 
     public static void main(String[] args) throws IOException {
         ArgsName name1 = ArgsName.of(new String[]{
-                "-d=C:\\projects\\job4j_design\\data", "-n=*.?xt", "-t=regex", "-o=C:\\projects\\job4j_design\\cftdir\\Mylog.txt"});
+                "-d=C:\\projects\\job4j_design\\data", "-n=*.?xt", "-t=mask", "-o=C:\\projects\\job4j_design\\cftdir\\Mylog.txt"});
         ArgsName name = ArgsName.of(args);
-        start(name);
+        start(name1);
     }
 }
