@@ -13,6 +13,10 @@ public class ArgsName {
         return values.get(key);
     }
 
+    public Map<String, String> map() {
+        return values;
+    }
+
     private void parse(String[] args) {
         if (args.length == 0) {
             throw new IllegalArgumentException("not enough initial parameters");
@@ -54,6 +58,5 @@ public class ArgsName {
 
         ArgsName zip = ArgsName.of(new String[]{"-out=project.zip", "-encoding=UTF-8"});
         System.out.println(zip.get("out"));
-
     }
 }
