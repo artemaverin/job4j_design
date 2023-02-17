@@ -9,7 +9,7 @@ create table city(
 );
 
 create table store_city(
-	store_add_id serial primary key,
+	store_city_id serial primary key,
 	store_id int references store(store_id),
 	city_id int references city(city_id)
 )
