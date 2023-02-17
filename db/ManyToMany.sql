@@ -8,10 +8,10 @@ create table city(
 	city_name char(50) not NULL
 );
 
-create table store_address(
+create table store_city(
 	store_add_id serial primary key,
 	store_id int references store(store_id),
-	city_id int references city(city_id),
-	address text not NULL
+	city_id int references city(city_id)
 )
+
 
