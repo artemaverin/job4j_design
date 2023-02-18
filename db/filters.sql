@@ -17,7 +17,7 @@ values
 ('МОЛОКО'),
 ('МЯСО'),
 ('ХЛЕБ'),
-('ОВОЩИ')
+('ОВОЩИ');
 
 insert into product(prod_name, type_id, expired_date, price)
 values
@@ -52,35 +52,35 @@ values
 ('круассан', 4, '2023-06-14', 19.56),
 ('бородинский хлеб', 4, '2023-08-24', 24.73),
 ('батон', 4, '2023-09-05', 17.15),
-('брынза', 1, '2023-02-05', 99.99)
+('брынза', 1, '2023-02-05', 99.99);
 
 
 select p.prod_name from product p join type t
 on p.type_id = t.id
-where t.type_name = 'СЫР'
+where t.type_name = 'СЫР';
 
 select prod_name from product
-where prod_name like '%мороженое%'
+where prod_name like '%мороженое%';
 
 select prod_name from product
-where expired_date < now()
+where expired_date < now();
 
 select prod_name from product
-where price = (select max(price) from product)
+where price = (select max(price) from product);
 
 select t.type_name, count(distinct prod_name) as prod_count from product p join type t
 on p.type_id = t.id
-group by t.type_name
+group by t.type_name;
 
 select p.prod_name from product p join type t
 on p.type_id = t.id
-where t.type_name in ('СЫР', 'МОЛОКО')
+where t.type_name in ('СЫР', 'МОЛОКО');
 
 select t.type_name from product p join type t
 on p.type_id = t.id
 group by t.type_name
-having count(distinct prod_name) < 10
+having count(distinct prod_name) < 10;
 
 select t.type_name, p.prod_name  from product p join type t
 on p.type_id = t.id
-order by t.type_name, p.prod_name
+order by t.type_name, p.prod_name;
