@@ -15,39 +15,32 @@ create table devices_people(
     people_id int references people(id)
 );
 
+insert into devices(dev_name, price) values ('iphone', 1499.99);
+insert into devices(dev_name, price) values ('gopro', 2500);
+insert into devices(dev_name, price) values ('notepad', 6850.50);
+insert into devices(dev_name, price) values ('quadrocopter', 9045.99);
+insert into devices(dev_name, price) values ('ultrabook', 11909.44);
 
-insert into devices(dev_name, price)
-values
-('iphone', 1499.99),
-('gopro', 2500),
-('notepad', 6850.50),
-('quadrocopter', 9045.99),
-('ultrabook', 11909.44);
+insert into people(people_name) values ('Bob');
+insert into people(people_name) values ('Jack');
+insert into people(people_name) values ('Kate');
 
-insert into people(people_name)
-values
-('Bob'),
-('Jack'),
-('Kate')
+insert into devices_people(device_id, people_id) values (1, 2);
+insert into devices_people(device_id, people_id) values (2, 3);
+insert into devices_people(device_id, people_id) values (4, 2);
+insert into devices_people(device_id, people_id) values (3, 1);
+insert into devices_people(device_id, people_id) values (2, 1);
+insert into devices_people(device_id, people_id) values (5, 3);
 
-insert into devices_people(device_id, people_id)
-values
-(1, 2),
-(2, 3),
-(4, 2),
-(3, 1),
-(2, 1),
-(5, 3)
+select avg(price) av_price from devices;
 
-select avg(price) av_price from devices
+select p.people_name, avg(d.price) av_price 
+from devices d join devices_people dp on d.id = dp.device_id
+join people p on p.id = dp.people_id
+group by p.people_name;
 
 select p.people_name, avg(d.price) av_price 
 from devices d join devices_people dp on d.id = dp.device_id
 join people p on p.id = dp.people_id
 group by p.people_name
-
-select p.people_name, avg(d.price) av_price 
-from devices d join devices_people dp on d.id = dp.device_id
-join people p on p.id = dp.people_id
-group by p.people_name
-having avg(d.price) > 5000
+having avg(d.price) > 5000;
