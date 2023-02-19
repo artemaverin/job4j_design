@@ -1,9 +1,9 @@
-create table departments (
+create table departments(
 	id serial primary key,
 	dep_name varchar(255)
 );
 
-create table employees (
+create table employees(
 	id serial primary key,
 	emp_name varchar(255),
 	dep_id int references departments(id)
@@ -52,19 +52,19 @@ on d.id = e.dep_id;
 
 select * from departments d cross join employees e;
 
-select distinct d.dep_name from departments d left join employees e
+select d.dep_name from departments d left join employees e
 on d.id = e.dep_id
 where e.dep_id is null;
 
-select distinct d.dep_name, count(distinct e.emp_name) 
+select d.dep_name, count(e.emp_name) 
 from departments d left join employees e
 on d.id = e.dep_id
 group by d.dep_name;
 
-select distinct d.dep_name, count(distinct e.emp_name) 
+select d.dep_name, count(e.emp_name) 
 from employees e right join departments d
 on d.id = e.dep_id
 group by d.dep_name;
 
 select t1.teen_name, t2.teen_name from teens t1 cross join teens t2
-where t1.gender != t2.gender;
+where t1.gender != t2.gender and t1.gender = 'male';
