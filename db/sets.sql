@@ -47,3 +47,4 @@ select title from book
 intersect
 select name from movie
 );
+
