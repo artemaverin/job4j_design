@@ -101,21 +101,21 @@ public class TableEditor implements AutoCloseable {
             config.load(in);
         }
         TableEditor tableEditor = new TableEditor(config);
-        System.out.println("CREATE TABLE");
-        tableEditor.createTable("category");
-        System.out.println(tableEditor.getTableScheme("category"));
+//        System.out.println("CREATE TABLE");
+//        tableEditor.createTable("category");
+//        System.out.println(tableEditor.getTableScheme("category"));
+//
+//        System.out.println("ADD COLUMN");
+//        tableEditor.addColumn("category", "c_name", "varchar");
+//        System.out.println(tableEditor.getTableScheme("category"));
+//
+//        System.out.println("RENAME COLUMN");
+//        tableEditor.renameColumn("category", "c_name", "category_title");
+//        System.out.println(tableEditor.getTableScheme("category"));
 
-        System.out.println("ADD COLUMN");
-        tableEditor.addColumn("category", "c_name", "varchar");
-        System.out.println(tableEditor.getTableScheme("category"));
-
-        System.out.println("RENAME COLUMN");
-        tableEditor.renameColumn("category", "c_name", "category_title");
-        System.out.println(tableEditor.getTableScheme("category"));
-
-        System.out.println("DELETE COLUMN");
-        tableEditor.dropColumn("category", "category_title");
-        System.out.println(tableEditor.getTableScheme("category"));
+//        System.out.println("DELETE COLUMN");
+//        tableEditor.dropColumn("category", "c_name");
+//        System.out.println(tableEditor.getTableScheme("category"));
 
         System.out.println("DROP TABLE");
         tableEditor.dropTable("category");
