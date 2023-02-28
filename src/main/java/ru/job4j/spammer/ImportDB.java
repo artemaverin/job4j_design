@@ -78,5 +78,4 @@ public class ImportDB {
         ImportDB db = new ImportDB(cfg, "./dump.txt");
         db.save(db.load());
     }
-
 }
