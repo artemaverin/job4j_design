@@ -24,7 +24,7 @@ public class ImportDB {
         if (arr.length != 2) {
             throw new IllegalArgumentException("количество аргументов не равно 2");
         }
-        if (arr[0].equals("") || arr[1].equals("")) {
+        if (arr[0].isBlank() || arr[1].isBlank()) {
             throw new IllegalArgumentException("не заполнено имя или емэйл");
         }
     }
