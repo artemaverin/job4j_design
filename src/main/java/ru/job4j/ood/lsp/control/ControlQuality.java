@@ -19,13 +19,13 @@ public class ControlQuality {
         return stores;
     }
 
-    public void func(List<Food> products) {
+    public void foodSort(List<Food> products) {
         for (Food product: products) {
-            foo(product);
+            filter(product);
         }
     }
 
-    private void foo(Food food) {
+    private void filter(Food food) {
         float plannedDays = (float) DAYS.between(food.getExpireDate(), food.getCreateDate());
         float factDays = (float) DAYS.between(LocalDate.now(), food.getCreateDate());
         float res = (factDays / plannedDays);

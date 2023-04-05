@@ -29,7 +29,7 @@ class ShopTest {
                 List.of(
                         new Trash(x -> x >= 0.25 && x < 1)
                 ));
-        controlQuality.func(food);
+        controlQuality.foodSort(food);
         assertThat(controlQuality.getStores().get(0).get().size()).isEqualTo(1);
     }
 
@@ -53,7 +53,7 @@ class ShopTest {
                 List.of(
                         new Shop(x -> x >= 0.25 && x < 1)
                 ));
-        controlQuality.func(food);
+        controlQuality.foodSort(food);
         assertThat(controlQuality.getStores().get(0).get().get(1).getPrice()).isEqualTo(200);
     }
 }

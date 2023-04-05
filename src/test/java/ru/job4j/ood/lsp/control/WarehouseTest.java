@@ -29,7 +29,7 @@ class WarehouseTest {
                 List.of(
                         new Warehouse(x -> x >= 0 && x < 0.25)
         ));
-        controlQuality.func(food);
+        controlQuality.foodSort(food);
         assertThat(controlQuality.getStores().get(0).get().size()).isEqualTo(2);
     }
 }

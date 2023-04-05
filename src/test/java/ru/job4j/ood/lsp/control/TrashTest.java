@@ -30,7 +30,7 @@ class TrashTest {
                         new Trash(x -> x > 1)
 
                 ));
-        controlQuality.func(food);
+        controlQuality.foodSort(food);
         assertThat(controlQuality.getStores().get(0).get().size()).isEqualTo(2);
     }
 

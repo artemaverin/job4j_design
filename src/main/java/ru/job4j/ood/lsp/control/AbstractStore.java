@@ -18,5 +18,4 @@ public abstract class AbstractStore implements Store {
         }
         warehouse.add(food);
     }
-
 }

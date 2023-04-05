@@ -3,7 +3,6 @@ package ru.job4j.ood.lsp.control;
 import java.util.function.Predicate;
 
 public class Warehouse extends AbstractStore {
-
     Predicate<Float> predicate;
 
     public Warehouse(Predicate<Float> predicate) {
