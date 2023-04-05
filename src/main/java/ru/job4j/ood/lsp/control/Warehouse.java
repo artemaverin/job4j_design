@@ -11,6 +11,7 @@ public class Warehouse extends AbstractStore {
 
     public Warehouse() {
     }
+
     @Override
     public boolean check(float num, Food food) {
         if (predicate == null) {

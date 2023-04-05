@@ -6,4 +6,5 @@ public interface Store {
     List<Food> get();
     boolean check(float num, Food food);
     void put(Food food);
+
 }

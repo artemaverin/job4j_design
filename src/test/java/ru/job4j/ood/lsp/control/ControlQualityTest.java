@@ -40,4 +40,5 @@ class ControlQualityTest {
         assertThat(controlQuality.getStores().get(1).get().get(1).getName()).isEqualTo("Chicken");
         assertThat(controlQuality.getStores().get(2).get().get(0).getName()).isEqualTo("Apple");
     }
+
 }

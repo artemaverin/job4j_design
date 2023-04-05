@@ -12,7 +12,6 @@ public class ControlQuality {
     }
 
     public ControlQuality() {
-
     }
 
     public List<Store> getStores() {

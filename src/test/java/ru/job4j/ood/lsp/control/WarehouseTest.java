@@ -14,13 +14,13 @@ class WarehouseTest {
     public void whenWarehouse() {
         Food milk = new MilkProduct("Milk",
                 LocalDate.of(2023,  4, 4),
-                LocalDate.of(2023,  4, 9), 100, 0.5);
+                LocalDate.of(2023,  4, 13), 100, 0.5);
         Food fruit = new Fruit("Apple",
                 LocalDate.of(2022,  10, 10),
                 LocalDate.of(2024,  3, 10), 202, 0.4);
         Food meat = new Meat("Chicken",
                 LocalDate.of(2023,  4, 5),
-                LocalDate.of(2023,  4, 11), 100, 0.5);
+                LocalDate.of(2023,  4, 14), 100, 0.5);
         List<Food> food = new ArrayList<>();
         food.add(milk);
         food.add(fruit);

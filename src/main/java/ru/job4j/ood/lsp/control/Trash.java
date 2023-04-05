@@ -16,5 +16,4 @@ public class Trash extends AbstractStore {
         }
         return predicate.test(num);
     }
-
 }

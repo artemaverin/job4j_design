@@ -33,7 +33,6 @@ class ShopTest {
         assertThat(controlQuality.getStores().get(0).get().size()).isEqualTo(1);
     }
 
-
     @Test
     public void whenShopWithDiscount() {
         Food milk = new MilkProduct("Milk",

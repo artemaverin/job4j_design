@@ -11,6 +11,7 @@ public class Shop extends AbstractStore {
 
     public Shop() {
     }
+
     @Override
     public boolean check(float num, Food food) {
         if (predicate == null) {

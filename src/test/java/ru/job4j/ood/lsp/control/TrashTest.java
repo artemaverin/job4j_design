@@ -28,7 +28,6 @@ class TrashTest {
         ControlQuality controlQuality = new ControlQuality(
                 List.of(
                         new Trash(x -> x > 1)
-
                 ));
         controlQuality.foodSort(food);
         assertThat(controlQuality.getStores().get(0).get().size()).isEqualTo(2);

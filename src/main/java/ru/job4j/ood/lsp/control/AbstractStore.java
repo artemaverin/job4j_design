@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractStore implements Store {
+
     private final List<Food> warehouse = new ArrayList<>();
 
     @Override
