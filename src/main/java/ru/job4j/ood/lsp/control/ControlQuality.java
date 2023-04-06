@@ -5,7 +5,7 @@ import java.util.List;
 import static java.time.temporal.ChronoUnit.DAYS;
 
 public class ControlQuality {
-    List<Store> stores;
+    private List<Store> stores;
 
     public ControlQuality(List<Store> stores) {
         this.stores = stores;

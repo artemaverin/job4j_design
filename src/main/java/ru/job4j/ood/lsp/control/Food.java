@@ -3,11 +3,11 @@ package ru.job4j.ood.lsp.control;
 import java.time.LocalDate;
 
 public class Food {
-    String name;
-    LocalDate createDate;
-    LocalDate expireDate;
-    double price;
-    double discount;
+    private String name;
+    private LocalDate createDate;
+    private LocalDate expireDate;
+    private double price;
+    private double discount;
 
     public Food(String name, LocalDate createDate, LocalDate expireDate,  double price, double discount) {
         this.name = name;
