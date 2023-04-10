@@ -11,4 +11,5 @@ public class Car extends AbstractAuto {
     public double getSize() {
         return SIZE;
     }
+
 }

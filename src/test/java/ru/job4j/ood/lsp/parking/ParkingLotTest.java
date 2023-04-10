@@ -70,4 +70,5 @@ class ParkingLotTest {
     public void whenParkingLotException() {
         assertThatThrownBy(() -> new ParkingLot(0, 1)).isInstanceOf(IllegalArgumentException.class);
     }
+
 }
