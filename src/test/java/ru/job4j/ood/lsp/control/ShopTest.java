@@ -8,9 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
-
+@Disabled("Тесты отключены. Удалить аннотацию после реализации всех методов по заданию.")
 class ShopTest {
-    @Disabled("Тесты отключены. Удалить аннотацию после реализации всех методов по заданию.")
     @Test
     public void whenShop() {
         Food milk = new MilkProduct("Milk",
