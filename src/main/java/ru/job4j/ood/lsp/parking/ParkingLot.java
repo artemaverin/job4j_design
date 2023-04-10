@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ParkingLot {
+
     private double carSlotCount;
     private double truckSlotCount;
     private List<Auto> cars = new ArrayList<>();

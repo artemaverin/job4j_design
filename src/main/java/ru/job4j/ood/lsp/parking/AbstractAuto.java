@@ -1,6 +1,7 @@
 package ru.job4j.ood.lsp.parking;
 
 public abstract class AbstractAuto implements Auto {
+
     private String model;
     private int number;
 

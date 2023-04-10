@@ -51,7 +51,7 @@ class ParkingLotTest {
         autos.add(truck1);
         autos.add(car2);
         parkingLot.park(autos);
-        assertThat(parkingLot.getAutosPark().containsAll(List.of(car,car1,truck, car2))).isTrue();
+        assertThat(parkingLot.getAutosPark().containsAll(List.of(car, car1, truck, car2))).isTrue();
     }
 
     @Test
@@ -63,7 +63,7 @@ class ParkingLotTest {
         autos.add(truck1);
         autos.add(car2);
         parkingLot.park(autos);
-        assertThat(parkingLot.getAutosPark().containsAll(List.of(car,car1,truck, truck1))).isTrue();
+        assertThat(parkingLot.getAutosPark().containsAll(List.of(car, car1, truck, truck1))).isTrue();
     }
 
     @Test
