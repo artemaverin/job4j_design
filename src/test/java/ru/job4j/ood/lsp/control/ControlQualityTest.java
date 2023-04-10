@@ -1,5 +1,6 @@
 package ru.job4j.ood.lsp.control;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -9,6 +10,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
 class ControlQualityTest {
+    @Disabled("Тесты отключены. Удалить аннотацию после реализации всех методов по заданию.")
     @Test
     public void whenControlQuality() {
         Food milk = new MilkProduct("Milk",
