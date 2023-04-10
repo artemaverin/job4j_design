@@ -16,5 +16,4 @@ public class Truck extends AbstractAuto {
     public double getSize() {
         return size;
     }
-
 }
