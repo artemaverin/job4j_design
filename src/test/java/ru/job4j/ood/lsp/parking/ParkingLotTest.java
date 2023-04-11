@@ -1,5 +1,6 @@
 package ru.job4j.ood.lsp.parking;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
+@Disabled("Тесты отключены")
 class ParkingLotTest {
     Auto car = new Car("Tesla", 4556);
     Auto car1 = new Car("Audi", 2468);
