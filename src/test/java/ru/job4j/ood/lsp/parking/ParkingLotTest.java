@@ -8,7 +8,6 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
-@Disabled("Тесты отключены")
 class ParkingLotTest {
     Auto car = new Car("Tesla", 4556);
     Auto car1 = new Car("Audi", 2468);
@@ -71,6 +70,11 @@ class ParkingLotTest {
     @Test
     public void whenParkingLotException() {
         assertThatThrownBy(() -> new ParkingLot(0, 1)).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    public void whenTruckSizeException() {
+        assertThatThrownBy(() -> new Truck("Kamaz", 6556, 1)).isInstanceOf(IllegalArgumentException.class);
     }
 
 }

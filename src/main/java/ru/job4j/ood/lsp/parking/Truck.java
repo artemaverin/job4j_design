@@ -6,8 +6,8 @@ public class Truck extends AbstractAuto {
 
     public Truck(String model, int number, double size) {
         super(model, number);
-        if (size <= 0) {
-            throw new IllegalArgumentException();
+        if (size <= 1) {
+            throw new IllegalArgumentException("указанный размер не соответствует грузовому авто");
         }
         this.size = size;
     }

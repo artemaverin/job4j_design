@@ -6,11 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 public class ParkingLot {
-
     private double carSlotCount;
     private double truckSlotCount;
-    private List<Auto> cars = new ArrayList<>();
-    private List<Auto> trucks = new ArrayList<>();
     private List<Auto> autosPark = new ArrayList<>();
 
     public ParkingLot(double carSlotCount, double truckSlotCount) {
@@ -27,20 +24,17 @@ public class ParkingLot {
 
     public void park(List<Auto> autos) {
         if (autos == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("список пуст");
         }
         for (Auto auto: autos) {
             if (auto.getSize() == 1 && auto.getSize() <= carSlotCount * auto.getSize()) {
-                cars.add(auto);
                 carSlotCount = carSlotCount - 1;
                 autosPark.add(auto);
             }
             if (auto.getSize() > 1 && auto.getSize() <= truckSlotCount * auto.getSize()) {
-                trucks.add(auto);
                 truckSlotCount = truckSlotCount - 1;
                 autosPark.add(auto);
             } else if (auto.getSize() > 1 && auto.getSize() > truckSlotCount && auto.getSize() <= carSlotCount) {
-                cars.add(auto);
                 carSlotCount = carSlotCount - auto.getSize();
                 autosPark.add(auto);
             }
