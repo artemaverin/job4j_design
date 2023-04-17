@@ -73,4 +73,11 @@ public class TodoApp {
     private void runMenu(MenuPrinter printer, Menu menu) {
         printer.print(menu);
     }
+
+    public static void main(String[] args) {
+        TodoApp app = new TodoApp();
+        Menu menu = new SimpleMenu();
+        MenuPrinter printer = new SimpleMenuPrinter();
+        app.run(menu, printer);
+    }
 }
