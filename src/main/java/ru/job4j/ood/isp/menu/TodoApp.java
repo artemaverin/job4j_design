@@ -56,7 +56,6 @@ public class TodoApp {
                     throw new IllegalArgumentException("такой пункт не существует");
             }
         }
-
     }
 
     private void addRoot(Menu menu, String element, ActionDelegate actionDelegate) {

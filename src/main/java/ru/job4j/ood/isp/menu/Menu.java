@@ -69,5 +69,4 @@ public interface Menu extends Iterable<Menu.MenuItemInfo> {
         }
 
     }
-
 }

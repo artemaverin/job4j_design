@@ -3,6 +3,7 @@ package ru.job4j.ood.isp.menu;
 import java.util.*;
 
 public class SimpleMenu implements Menu {
+
     private final List<MenuItem> rootElements = new ArrayList<>();
 
     @Override

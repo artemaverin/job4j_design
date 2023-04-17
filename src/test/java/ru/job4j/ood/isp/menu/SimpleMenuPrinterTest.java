@@ -22,7 +22,7 @@ class SimpleMenuPrinterTest {
     }
 
     @Test
-    public void Test() {
+    public void whenShowMenu() {
         Menu menu = new SimpleMenu();
         SimpleMenuPrinter printer = new SimpleMenuPrinter();
         menu.add(Menu.ROOT, "Сходить в магазин", STUB_ACTION);
