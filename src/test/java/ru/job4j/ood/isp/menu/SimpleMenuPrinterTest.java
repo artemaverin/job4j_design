@@ -11,7 +11,6 @@ import java.io.PrintStream;
 import static org.assertj.core.api.Assertions.*;
 
 class SimpleMenuPrinterTest {
-
     private final ByteArrayOutputStream output = new ByteArrayOutputStream();
 
     public static final ActionDelegate STUB_ACTION = System.out::println;
