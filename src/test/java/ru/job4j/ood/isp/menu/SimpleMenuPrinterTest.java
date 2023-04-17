@@ -41,5 +41,4 @@ class SimpleMenuPrinterTest {
     public void cleanUpStreams() {
         System.setOut(null);
     }
-
 }

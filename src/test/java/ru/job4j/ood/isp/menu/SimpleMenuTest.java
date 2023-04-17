@@ -59,5 +59,4 @@ class SimpleMenuTest {
                 .isEqualTo(menu.select("Декстер").get());
         menu.forEach(i -> System.out.println(i.getNumberInfo() + i.getNameInfo()));
     }
-
 }

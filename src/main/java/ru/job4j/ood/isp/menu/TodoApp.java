@@ -3,6 +3,7 @@ package ru.job4j.ood.isp.menu;
 import java.util.Scanner;
 
 public class TodoApp {
+
     private static final String SEP = System.lineSeparator();
 
     private static final String MENU = "---------------------"  + SEP
