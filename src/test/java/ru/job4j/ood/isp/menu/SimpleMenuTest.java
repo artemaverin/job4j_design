@@ -28,7 +28,6 @@ class SimpleMenuTest {
         assertThat(new Menu.MenuItemInfo(
                 "Покормить собаку", List.of(), STUB_ACTION, "2."))
                 .isEqualTo(menu.select("Покормить собаку").get());
-        menu.forEach(i -> System.out.println(i.getNumberInfo() + i.getNameInfo()));
     }
     @Test
     public void whenAddThenCheckSelect() {
@@ -57,6 +56,5 @@ class SimpleMenuTest {
         assertThat(new Menu.MenuItemInfo("Декстер",
                 List.of("ДКС_Сезон 1"), STUB_ACTION, "3."))
                 .isEqualTo(menu.select("Декстер").get());
-        menu.forEach(i -> System.out.println(i.getNumberInfo() + i.getNameInfo()));
     }
 }
