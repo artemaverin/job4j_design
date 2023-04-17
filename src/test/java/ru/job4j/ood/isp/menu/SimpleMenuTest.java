@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.*;
 
 class SimpleMenuTest {
 
-    public static final ActionDelegate STUB_ACTION = System.out::println;
+    public static final ActionDelegate STUB_ACTION = () -> System.out.println("");
 
     @Test
     public void whenAddThenReturnSame() {
@@ -29,6 +29,7 @@ class SimpleMenuTest {
                 "Покормить собаку", List.of(), STUB_ACTION, "2."))
                 .isEqualTo(menu.select("Покормить собаку").get());
     }
+
     @Test
     public void whenAddThenCheckSelect() {
         Menu menu = new SimpleMenu();
