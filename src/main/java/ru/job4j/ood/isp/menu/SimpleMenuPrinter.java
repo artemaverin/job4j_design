@@ -14,7 +14,6 @@ public class SimpleMenuPrinter implements MenuPrinter {
             }
             for (int j = 0; j < count - 1; j++) {
                 s += "---";
-
             }
             System.out.println(s + i.getNameInfo() + " " + i.getNumberInfo());
         }

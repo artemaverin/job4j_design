@@ -31,7 +31,7 @@ class SimpleMenuTest {
         menu.forEach(i -> System.out.println(i.getNumberInfo() + i.getNameInfo()));
     }
     @Test
-    public void WhenAddMultipleElement() {
+    public void whenAddThenReturnSame2() {
         Menu menu = new SimpleMenu();
         menu.add(Menu.ROOT, "Доктор Хаус", STUB_ACTION);
         menu.add(Menu.ROOT, "Скорая помощь", STUB_ACTION);
