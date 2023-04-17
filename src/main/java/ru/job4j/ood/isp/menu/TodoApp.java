@@ -33,11 +33,11 @@ public class TodoApp {
                     addRoot(menu, rootElement, () -> System.out.println(action));
                     break;
                 case "2":
-                    System.out.println("Введите имя корневого элемента");
+                    System.out.println("Введите имя нового элемента");
                     String childElement = scanner.nextLine();
-                    System.out.println("Введите действие");
+                    System.out.println("Введите действие для нового элемента");
                     String action2 = scanner.nextLine();
-                    System.out.println("Введите имя родительского элемента");
+                    System.out.println("Введите имя родителя для нового элемента");
                     String parentElement = scanner.nextLine();
                     addParent(menu, childElement, () -> System.out.println(action2), parentElement);
                     break;
