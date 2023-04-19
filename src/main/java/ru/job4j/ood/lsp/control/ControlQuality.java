@@ -1,6 +1,7 @@
 package ru.job4j.ood.lsp.control;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 import static java.time.temporal.ChronoUnit.DAYS;
 
@@ -33,6 +34,14 @@ public class ControlQuality {
                 store.put(food);
                 break;
             }
+        }
+    }
+
+    public void resort() {
+        for (Store store:getStores()) {
+            List<Food> temp = store.get();
+            store.clearStore();
+            foodSort(temp);
         }
     }
 }

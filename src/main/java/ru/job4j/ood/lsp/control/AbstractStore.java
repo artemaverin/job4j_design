@@ -19,4 +19,8 @@ public abstract class AbstractStore implements Store {
         }
         warehouse.add(food);
     }
+
+    public void clearStore() {
+        warehouse.clear();
+    }
 }
